@@ -1,0 +1,18 @@
+{
+  "moduleFileExtensions": [
+    "js",
+    "json",
+    "ts"
+  ],
+  "moduleNameMapper": {
+    "^@/shared-configuration(|/.*)$": "<rootDir>/libs/shared-configuration/src/$1",
+    "^@/domain(|/.*)$": "<rootDir>/libs/domain/src/$1",
+    "^@/persistence(|/.*)$": "<rootDir>/libs/persistence/src/$1"
+  },
+  "rootDir": "../../..",
+  "testEnvironment": "node",
+  "testRegex": ".e2e-spec.ts$",
+  "transform": {
+    "^.+\\.(t|j)s$": "ts-jest"
+  }
+}

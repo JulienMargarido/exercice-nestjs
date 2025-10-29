@@ -1,0 +1,140 @@
+{
+ "openapi": "3.0.0",
+ "paths": {
+  "/chats": {
+   "post": {
+    "operationId": "ChatController_recupereChats",
+    "parameters": [],
+    "responses": {
+     "200": {
+      "description": "Le résultat de la récupération des chats sauvegardés",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ChatDto"
+        }
+       }
+      }
+     }
+    },
+    "summary": "Récupération des chats sauvegardés",
+    "tags": [
+     "Chat"
+    ]
+   }
+  },
+  "/chats/creer": {
+   "post": {
+    "operationId": "ChatController_creerChat",
+    "parameters": [],
+    "requestBody": {
+     "required": true,
+     "description": "Un chat a créer",
+     "content": {
+      "application/json": {
+       "schema": {
+        "$ref": "#/components/schemas/CreerChatDto"
+       }
+      }
+     }
+    },
+    "responses": {
+     "201": {
+      "description": "Chat créé",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/ChatDto"
+        }
+       }
+      }
+     }
+    },
+    "summary": "Création d'un chat",
+    "tags": [
+     "Chat"
+    ]
+   }
+  }
+ },
+ "info": {
+  "title": " Documentation API Chat",
+  "description": "La documentation de l'api chat",
+  "version": "local",
+  "contact": {}
+ },
+ "tags": [],
+ "servers": [],
+ "components": {
+  "securitySchemes": {
+   "bearer": {
+    "scheme": "bearer",
+    "bearerFormat": "JWT",
+    "type": "http"
+   }
+  },
+  "schemas": {
+   "ChatDto": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "description": "Identifiant unique du chat"
+     },
+     "nom": {
+      "type": "string",
+      "description": "Nom du chat"
+     },
+     "age": {
+      "type": "number",
+      "description": "Age du chat en année"
+     },
+     "sexe": {
+      "type": "string",
+      "description": "Sexe du chat",
+      "enum": [
+       "M",
+       "F"
+      ]
+     }
+    },
+    "required": [
+     "id",
+     "nom",
+     "age",
+     "sexe"
+    ]
+   },
+   "CreerChatDto": {
+    "type": "object",
+    "properties": {
+     "nom": {
+      "type": "string",
+      "description": "Nom du chat"
+     },
+     "age": {
+      "type": "number",
+      "description": "Age du chat en année"
+     },
+     "sexe": {
+      "type": "string",
+      "description": "Sexe du chat",
+      "enum": [
+       "M",
+       "F"
+      ]
+     }
+    },
+    "required": [
+     "nom",
+     "age",
+     "sexe"
+    ]
+   }
+  }
+ },
+ "externalDocs": {
+  "description": "",
+  "url": ""
+ }
+}

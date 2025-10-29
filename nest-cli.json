@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json.schemastore.org/nest-cli",
+  "collection": "@nestjs/schematics",
+  "defaultLibraryPrefix": "@my-crit",
+  "monorepo": true,
+  "root": "apps/web",
+  "sourceRoot": "apps/web/src",
+  "compilerOptions": {
+    "webpack": true,
+    "builder": "webpack",
+    "webpackConfigPath": "webpack/webpack.dev.js",
+    "tsConfigPath": "apps/web/tsconfig.app.json"
+  },
+  "projects": {
+    "web": {
+      "type": "application",
+      "root": "apps/web",
+      "entryFile": "main",
+      "sourceRoot": "apps/web/src",
+      "compilerOptions": {
+        "webpack": true,
+        "builder": "webpack",
+        "tsConfigPath": "apps/web/tsconfig.app.json"
+      }
+    },
+    "ingest": {
+      "type": "application",
+      "root": "apps/ingest",
+      "entryFile": "main",
+      "sourceRoot": "apps/ingest/src",
+      "compilerOptions": {
+        "webpack": true,
+        "builder": "webpack",
+        "tsConfigPath": "apps/ingest/tsconfig.app.json"
+      }
+    },
+    "shared-configuration": {
+      "type": "library",
+      "root": "libs/shared-configuration",
+      "entryFile": "index",
+      "sourceRoot": "libs/shared-configuration/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/shared-configuration/tsconfig.lib.json"
+      }
+    },
+    "domain": {
+      "type": "library",
+      "root": "libs/domain",
+      "entryFile": "index",
+      "sourceRoot": "libs/domain/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/domain/tsconfig.lib.json"
+      }
+    },
+    "persistence": {
+      "type": "library",
+      "root": "libs/persistence",
+      "entryFile": "index",
+      "sourceRoot": "libs/persistence/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/persistence/tsconfig.lib.json"
+      }
+    },
+    "service": {
+      "type": "library",
+      "root": "libs/service",
+      "entryFile": "index",
+      "sourceRoot": "libs/service/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/service/tsconfig.lib.json"
+      }
+    }
+  }
+}

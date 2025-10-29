@@ -1,8 +1,8 @@
-# B2C Exercice pour les candidats Crit
+# Exercice NestJS/TS pour les candidats Crit
 
 Il vous est donné ce projet afin que vous puissiez effectuer l'exercice pour l'entretien de développeur Back TS.
 
-Vous trouverez l'ensemble des taches qui vous sont demandés à la fin de ce README, il vous est fortement recommandé de lire les quelques explications se trouvant entre ce paragraphe et les différents exercices.
+Vous trouverez l'ensemble des tâches qui vous sont demandés à la fin de ce README, il vous est fortement recommandé de lire les quelques explications se trouvant entre ce paragraphe et les différents exercices.
 
 
 ## Project structure
@@ -82,33 +82,39 @@ Vous pouvez accéder et utiliser votre document Swagger API via
 [localhost:3000/swagger](https://localhost:3000/swagger).
 
 
-## Exercices 
+## Exercices
 
-### Contexte 
+### Contexte
 
-Il vous est fournis dans ce projet une API gérant une entité métier "Chat".
+Il vous est fournis dans ce projet une API gérant une entité métier "Chat" :cat:
 
-Actuellement, le projet permet de créer un chat (c'est à dire effectuer une action API Post qui persistera le chat) et de récupérer la liste des chats persistés (par le biais d'une route POST).
+Actuellement, le projet permet de :
+- créer un chat
+  - soit **via API** avec un `POST` qui persistera le chat
+  - soit **via ingestion** d'un événement de création via `ChatEventType.CREATION`)
+
+- récupérer la liste des chats persistés (par le biais d'une route POST).
 
 ### Exercice 1
 
-Votre tache sera de modifier l'entité chat.
-Le but étant que l'entité Chat contienne un champ "ownerEmail" qui sera nécessaire l'appel à la route POST pour créer un chat.
+Votre tâche sera de modifier l'entité "chat".
+Le but étant que l'entité Chat contienne un champ "ownerEmail" qui sera nécessaire lors de l'appel à la route POST pour créer un chat, et donc le persister.
 
-Une fois celà fais, l'adresse email étant un champ "risqué", il faudra ajouter un Interceptor permettant de filtrer les réponses API renvoyant des chats afin qu'elles ne contiennent pas ce champ
+Une fois celà fait, l'adresse email étant un champ "risqué", il faudra ajouter un Interceptor (ou équivalent)
+permettant de filtrer les réponses API renvoyant des chats afin qu'elles ne contiennent pas ce champ.
 
 ### Exercice 2
 
-Cette route de récupération des chats n'est pas optimale.
+La route actuelle de récupération des chats n'est pas optimale.
 
-Elle renvoie l'entiéreté des chats de la base de données.
+Elle renvoie l'entièreté des chats de la base de données.
 
-Proposez une solution pour respecter les bonnes pratiques usuelles de code et de design pour une route de récupération par lot.
+Proposez une solution pour respecter les bonnes pratiques usuelles de code et de design pour une route de récupération par lot et/ou par filtres.
 
 
 ### Exercice 3
 
-Actuellement, les "chats" sont uniquement persistées en mémoire dans l'API.
+Actuellement, les "chats" sont uniquement persistés en mémoire dans l'API.
 
 Nous souhaitons conserver ce mode de persistance pour l’environnement de développement local, mais ajouter une seconde couche de persistance (par exemple une base de données ou un stockage disque) qui sera utilisée en environnement de production.
 
